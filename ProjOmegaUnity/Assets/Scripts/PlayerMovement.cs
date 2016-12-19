@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody playerObject;
 
-    //Animator anim;
+    Animator anim;
 
     private bool isMoving;
     void Start()
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         playerObject = GetComponent<Rigidbody>();
         speedCopy = speed;
         isMoving = false;
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -30,12 +30,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d"))
         {
             isMoving = true;
-            //anim.SetBool("walking", true);
+            anim.SetBool("walking", true);
         }
         else
         {
             isMoving = false;
-            //anim.SetBool("walking", false);
+            anim.SetBool("walking", false);
         }
     }
 

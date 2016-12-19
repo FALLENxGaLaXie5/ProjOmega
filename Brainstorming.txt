@@ -1,0 +1,30 @@
+Player - Undercover female cop
+
+
+
+
+Setting - Urban City
+
+	The city will be populated by AI citizens - every day people, going about their business doing random stuff.
+	Nightlife type setting - Albaquerky New Mexico
+	
+
+
+
+
+Opposition - Committee of 300
+	
+	This will be an international organization, but the player doesn't know that at the beginning of the game. Essentially, the player starts off
+	walking around in this city, doing every day life. Then they start noticing people off, and start noticing the effects of a virus and people turning into zombies. 
+	
+	Turns out, the committee of 300 has sent people into this city to begin INTENTIONALLY infecting people (we don't know why yet). 
+	
+	Slow build-up. Psychological thriller approach to gameplay.
+	
+
+Gameplay
+	You're walking around the city, trying to find these people (usually average looking citizens) in the crowds of people, and kill them. 
+
+	Later on, people can turn into zombies and will chase you around.
+	
+	You can also call 911 and try to get infected people into hospitals. 
