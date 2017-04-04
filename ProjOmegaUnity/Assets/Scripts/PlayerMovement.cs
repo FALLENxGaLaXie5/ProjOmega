@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
 
     private bool isMoving;
+    private bool isRunning;
     void Start()
     {
         playerObject = GetComponent<Rigidbody>();
@@ -27,10 +28,26 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        checkForMovement();
+    }
+
+    void checkForMovement()
+    {
         if (Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d"))
         {
             isMoving = true;
             anim.SetBool("walking", true);
+
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.SetBool("running", true);
+                increasedSpeed = 10;
+            }
+            else
+            {
+                anim.SetBool("running", false);
+                increasedSpeed = 0;
+            }
         }
         else
         {
@@ -49,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        playerObject.AddForce(transform.forward * speed);
+        playerObject.AddForce(transform.forward * (speed + increasedSpeed));
     }
 
 
