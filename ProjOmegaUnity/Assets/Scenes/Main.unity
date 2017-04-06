@@ -513,7 +513,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 343505938}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3aeb7dadc0c69d54d9e5777e9d5631f1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -652,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   increasedSpeed: 15
+  currentIncreasedSpeed: 0
 --- !u!54 &780050165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -711,8 +712,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40f40a6400cc6e4dbc7bf094321e65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
-  increasedSpeed: 15
+  speed: 100
+  increasedSpeed: 200
+  currentIncreasedSpeed: 0
 --- !u!54 &844578058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -720,10 +722,10 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 844578054}
   serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 15
-  m_AngularDrag: 15
-  m_UseGravity: 0
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -738,9 +740,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 3.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 1.78, z: 0}
 --- !u!1001 &965334156
 Prefab:
   m_ObjectHideFlags: 0
@@ -1043,6 +1045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   increasedSpeed: 15
+  currentIncreasedSpeed: 0
 --- !u!1001 &1433998151
 Prefab:
   m_ObjectHideFlags: 0

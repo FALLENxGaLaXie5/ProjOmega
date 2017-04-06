@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float increasedSpeed;
 
+    public float currentIncreasedSpeed;
+
     private Vector3 targetPosition;
 
     Rigidbody playerObject;
 
+    //CharacterController playerObject;
     Animator anim;
 
     private bool isMoving;
@@ -20,15 +23,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerObject = GetComponent<Rigidbody>();
+        //playerObject = GetComponent<CharacterController>();
         speedCopy = speed;
         isMoving = false;
         anim = GetComponent<Animator>();
+        currentIncreasedSpeed = increasedSpeed;
     }
 
 
     void Update()
     {
         checkForMovement();
+        checkJump();
     }
 
     void checkForMovement()
@@ -36,23 +42,35 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d"))
         {
             isMoving = true;
-            anim.SetBool("walking", true);
+            //anim.SetBool("walking", true);
 
             if(Input.GetKey(KeyCode.LeftShift))
             {
+                anim.SetBool("walking", false);
                 anim.SetBool("running", true);
-                increasedSpeed = 10;
+                currentIncreasedSpeed = increasedSpeed;
             }
             else
             {
+                anim.SetBool("walking", true);
                 anim.SetBool("running", false);
-                increasedSpeed = 0;
+                currentIncreasedSpeed = 0;
             }
         }
         else
         {
             isMoving = false;
             anim.SetBool("walking", false);
+            anim.SetBool("running", false);
+        }
+    }
+
+    void checkJump()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetTrigger("jump");
+            jump();
         }
     }
 
@@ -66,8 +84,13 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        playerObject.AddForce(transform.forward * (speed + increasedSpeed));
+        //playerObject.SimpleMove();
+        playerObject.AddForce(transform.forward * (speed + currentIncreasedSpeed));
     }
 
+    void jump()
+    {
+        playerObject.velocity = new Vector3(0f, 9f, 0f);
+    }
 
 }
