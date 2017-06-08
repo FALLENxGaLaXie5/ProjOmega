@@ -89,6 +89,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 458116}
+  - component: {fileID: 65917140022449184}
   m_Layer: 0
   m_Name: custom_building_006
   m_TagString: Untagged
@@ -623,7 +624,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 68.372246, y: 0, z: 171.66672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473010}
@@ -1227,3 +1228,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 125088}
   m_IsPrefabParent: 1
+--- !u!65 &65917140022449184
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.891792, y: 5.0279837, z: 7.7748566}
+  m_Center: {x: -0.009105682, y: 2.5212216, z: -0.023780823}
