@@ -3,11 +3,29 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    Animator anim;
+    [SerializeField]
+    private float directionDampTime = 0.25f;
+
+
+    private float h = 0.0f;
+    private float v = 0.0f;
+
+
+
+    public float speed = 0.0f;
+
+    public float maxSpeed = 10.0f;
+    public float minSpeed = 1.0f;
 
     private float speedCopy;
 
+    public float speedAnim;
+
     public float increasedSpeed;
+
+
 
     public float currentIncreasedSpeed;
 
@@ -16,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody playerObject;
 
     //CharacterController playerObject;
-    Animator anim;
 
     private bool isMoving;
     private bool isRunning;
@@ -29,15 +46,31 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         //currentIncreasedSpeed = increasedSpeed;
         currentIncreasedSpeed = 0;
+        speedAnim = 1.0f;
     }
     //lolololol
 
     void Update()
     {
-        checkForMovement();
-        checkJump();
+        if (anim)
+        {
+            h = Input.GetAxis("Horizontal");
+            v = Input.GetAxis("Vertical");
+            if (h != 0.0f || v != 0.0f)
+            {
+                speed = 0.5f;
+            }
+            speed = new Vector2(h, v).sqrMagnitude;
+            anim.SetFloat("Speed", speed);
+            anim.SetFloat("Direction", h, directionDampTime, Time.deltaTime);
+
+        }
+
+        //checkForMovement();
+        //checkJump();
     }
 
+    /*
     void checkForMovement()
     {
         if (Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("a") || Input.GetKey("d"))
@@ -50,6 +83,19 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("walking", false);
                 anim.SetBool("running", true);
                 currentIncreasedSpeed = increasedSpeed;
+                anim.SetFloat("Speed", speedAnim);
+                LerpAnimSpeedUp();
+            }
+            else if(speedAnim > 1.5f)
+            {
+                anim.SetFloat("Speed", speedAnim);
+                LerpAnimSpeedDown();
+            }
+            else if (speedAnim > 1.0f)
+            {
+                anim.SetBool("walking", true);
+                anim.SetBool("running", false);
+                LerpAnimSpeedDown();
             }
             else
             {
@@ -66,6 +112,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    */
+
+    void LerpAnimSpeedUp()
+    {
+        speedAnim = Mathf.Lerp(speedAnim, maxSpeed, Time.deltaTime * 0.5f);
+    }
+
+    void LerpAnimSpeedDown()
+    {
+        speedAnim = Mathf.Lerp(speedAnim, minSpeed, Time.deltaTime * 1.0f);
+    }
+
     void checkJump()
     {
         if(Input.GetKeyDown(KeyCode.Space))
@@ -77,8 +135,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        /*
         if(isMoving)
             MovePlayer();
+        */
     }
 
     void MovePlayer()
