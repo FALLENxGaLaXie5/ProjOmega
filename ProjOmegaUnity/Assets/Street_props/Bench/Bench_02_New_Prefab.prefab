@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 481120}
   - component: {fileID: 3337760}
   - component: {fileID: 2317380}
+  - component: {fileID: 65606038181881194}
   m_Layer: 0
   m_Name: Bench_02_001
   m_TagString: Untagged
@@ -38,9 +39,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131590}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 72.65145, y: 0, z: 39.42}
-  m_LocalScale: {x: 1.896036, y: 1.896036, z: 1.896036}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -40.42312, y: 43.50662, z: 34.760708}
+  m_LocalScale: {x: 1.896037, y: 1.896036, z: 1.896037}
   m_Children:
   - {fileID: 481120}
   m_Father: {fileID: 0}
@@ -109,3 +110,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131590}
   m_IsPrefabParent: 1
+--- !u!65 &65606038181881194
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.91610026, y: 0.6916001, z: 1.9782004}
+  m_Center: {x: 0.0050518974, y: 0.33790004, z: -0.0071000177}
